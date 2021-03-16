@@ -1,5 +1,5 @@
 <h1>Backend:</h1>
-<p>Technologies used - NodeJS, AngularCLI, MySQL</p>
+<p>Technologies used - NodeJS and MySQL</p>
 <p>
  How to run the execute project:<br>
  <ul>
