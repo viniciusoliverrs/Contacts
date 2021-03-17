@@ -7,7 +7,7 @@ router.get('/PhoneNumberType', (req, res) => {
     dbConn.connect(function(err) {
         let sql = "SELECT * FROM phonenumbertype";
         dbConn.query(sql, function(err, result) {
-            return res.json({ item: result });
+            return res.status(200).json({ "item": result });
         });
     });
 });

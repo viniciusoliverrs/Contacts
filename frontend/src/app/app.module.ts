@@ -3,22 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PhonenNumberTypeComponent } from './phonen-number-type/phonen-number-type.component';
-import { PersonPhoneComponent } from './person-phone/person-phone.component';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import { PhoneListComponent } from './pages/phone-list/phone-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhonenNumberTypeComponent,
-    PersonPhoneComponent
+    HomeComponent,
+    PhoneListComponent
   ],
   imports: [
     BrowserModule,
+    BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    RouterModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

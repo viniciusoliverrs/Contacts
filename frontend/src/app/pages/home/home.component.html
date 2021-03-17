@@ -1,0 +1,25 @@
+<fieldset style="margin-bottom: 10px;">
+    <form #form="ngForm">
+        <legend>Phone Number Type:*</legend>
+        <input type="text" name="Name" required ngModel />
+        <button (click)="addPhoneNumberType(form.value)">Add</button>
+    </form>
+</fieldset>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th colspan="3">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data.item">
+            <th>{{item.PhoneNumberTypeID}}</th>
+            <th>{{item.Name}}</th>
+            <th><a href="">Edit</a></th>
+            <th><button (click)="delPhoneNumberType(item.PhoneNumberTypeID)">Delete</button></th>
+            <th><a [routerLink]="['/phone-list']" [queryParams]="{ PhoneNumberTypeID: item.PhoneNumberTypeID }">Phone List</a></th>
+        </tr>
+    </tbody>
+</table>

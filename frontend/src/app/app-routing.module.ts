@@ -1,23 +1,21 @@
-import { PhonenNumberTypeComponent } from './phonen-number-type/phonen-number-type.component';
-import { PersonPhoneComponent } from './person-phone/person-phone.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from '../app/pages/home/home.component';
+import { PhoneListComponent } from './pages/phone-list/phone-list.component';
 
 const routes: Routes = [
   { 
     path: '', 
-    redirectTo: 'phone-number-type-component',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
- {
-    path: 'person-phone',
-    component: PersonPhoneComponent,
-    loadChildren: () => import('../app/person-phone/person-phone.component').then(m => m.PersonPhoneComponent)
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
-    path: 'phone-number-type-component',
-    component: PhonenNumberTypeComponent,
-    loadChildren: () => import('../app/phonen-number-type/phonen-number-type.component').then(m => m.PhonenNumberTypeComponent)
+    path: 'phone-list',
+    component: PhoneListComponent
   }
 ];
 
