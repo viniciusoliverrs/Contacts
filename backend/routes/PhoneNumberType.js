@@ -18,7 +18,6 @@ router.get('/PhoneNumberType', (req, res) => {
 router.get('/searchPhone', (req, res) => {
     dbConn.connect(function(err) {
         let sql = `SELECT * FROM phonenumbertype AS pn INNER JOIN personphone AS pp ON pp.PhoneNumberTypeID = pn.PhoneNumberTypeID WHERE pn.Name LIKE "%${req.query.Search}%" OR pp.PhoneNumber LIKE "%${req.query.Search}%"`;
-        console.log(sql);
         dbConn.query(sql, function(err, result) {
             return res.status(200).json({ "item": result });
         });
@@ -30,7 +29,7 @@ router.post('/addPhoneNumberType', (req, res) => {
         let sql = `INSERT INTO phonenumbertype (Name) VALUES ("${req.body.Name}")`;
         dbConn.query(sql, function(err, result) {
             if (!err) {
-                return res.json({ status: "OK" });
+                return res.status(200).json({ status: "OK" });
             } else {
                 return res.json({ status: "ERR" });
             }
@@ -41,10 +40,9 @@ router.post('/addPhoneNumberType', (req, res) => {
 router.post('/editPhoneNumberType', (req, res) => {
     dbConn.connect(function(err) {
         let sql = `UPDATE phonenumbertype SET Name = "${req.body.Name}" WHERE PhoneNumberTypeID =  ${req.body.PhoneNumberTypeID}`;
-        console.log(sql);
         dbConn.query(sql, function(err, result) {
             if (!err) {
-                return res.json({ status: "OK" });
+                return res.status(200).json({ status: "OK" });
             } else {
                 return res.json({ status: "ERR" });
             }
@@ -68,7 +66,7 @@ router.post('/delPhoneNumberType', (req, res) => {
         dbConn.query(sql, function(err, result) {
             if (!err) {
                 console.log("Deletado registro no phonenumbertype")
-                return res.json({ status: "OK" });
+                return res.status(200).json({ status: "OK" });
             } else {
                 console.log("Erro ao deletar registro no phonenumbertype");
                 return res.json({ status: "ERR" });

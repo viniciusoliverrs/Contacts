@@ -30,7 +30,7 @@
         <tr *ngFor="let item of data.item">
             <th>{{item.BusinessEntityID}}</th>
             <th>{{item.PhoneNumber}}</th>
-            <th><button [routerLink]="['/edit-phone']" [queryParams]="{ PhoneNumberTypeID:item.PhoneNumberTypeID,BusinessEntityID: item.BusinessEntityID}" class="btn btn-warning">Edit</button></th>
+            <th><button [routerLink]="['/editPhone']" [queryParams]="{ PhoneNumberTypeID:item.PhoneNumberTypeID,BusinessEntityID: item.BusinessEntityID}" class="btn btn-warning">Edit</button></th>
             <th><button (click)="delPersonNumber(item.PhoneNumberTypeID,item.BusinessEntityID)" class="btn btn-danger">Delete</button></th>
         </tr>
     </tbody>
