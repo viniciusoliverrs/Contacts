@@ -9,7 +9,6 @@ router.get('/PersonPhone', (req, res) => {
         if (req.query.PhoneNumberTypeID && req.query.BusinessEntityID) {
             sql = `SELECT * FROM personphone WHERE BusinessEntityID = ${req.query.BusinessEntityID} AND PhoneNumberTypeID = ${req.query.PhoneNumberTypeID}`;
         }
-        console.log(sql);
         dbConn.query(sql, function(err, result) {
             return res.json({ item: result });
         });

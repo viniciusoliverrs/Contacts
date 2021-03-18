@@ -56,20 +56,20 @@ router.post('/delPhoneNumberType', (req, res) => {
         dbConn.query(sql, function(err, result) {
             if (!err) {
                 console.log("Deletado registro no personphone");
+                dbConn.connect(function(err) {
+                    sql = `DELETE FROM phonenumbertype WHERE PhoneNumberTypeID = ${req.body.PhoneNumberTypeID}`;
+                    dbConn.query(sql, function(err, result) {
+                        if (!err) {
+                            console.log("Deletado registro no phonenumbertype")
+                            return res.status(200).json({ status: "OK" });
+                        } else {
+                            console.log("Erro ao deletar registro no phonenumbertype");
+                            return res.json({ status: "ERR" });
+                        }
+                    });
+                });
             } else {
                 console.log("Erro ao deletar registro no personphone");
-            }
-        });
-    });
-    dbConn.connect(function(err) {
-        sql = `DELETE FROM phonenumbertype WHERE PhoneNumberTypeID = ${req.body.PhoneNumberTypeID}`;
-        dbConn.query(sql, function(err, result) {
-            if (!err) {
-                console.log("Deletado registro no phonenumbertype")
-                return res.status(200).json({ status: "OK" });
-            } else {
-                console.log("Erro ao deletar registro no phonenumbertype");
-                return res.json({ status: "ERR" });
             }
         });
     });
