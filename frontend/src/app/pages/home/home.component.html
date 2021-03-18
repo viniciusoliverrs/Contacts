@@ -1,10 +1,18 @@
-<fieldset style="margin-bottom: 10px;">
-    <form #form="ngForm">
-        <legend>Phone Number Type:*</legend>
-        <input type="text" name="Name" required ngModel />
-        <button (click)="addPhoneNumberType(form.value)" class="btn-success">Add</button>
-    </form>
-</fieldset>
+<div class="row">
+    <div class="col-md-12">
+        <form #form="ngForm">
+            <div class="input-group ">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        Phone Number Type:*
+                    </span>
+                </div>
+                <input type="text" name="Name" class="form-control" ngModel/>
+            </div>
+            <button (click)="addPhoneNumberType(form.value)" class="btn btn-success" style="float:right;margin-top:5px;">Add</button>
+        </form>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -17,9 +25,9 @@
         <tr *ngFor="let item of data.item">
             <th>{{item.PhoneNumberTypeID}}</th>
             <th>{{item.Name}}</th>
-            <th><a href="">Edit</a></th>
-            <th><button (click)="delPhoneNumberType(item.PhoneNumberTypeID)" class="btn-danger">Delete</button></th>
-            <th><button class="btn-primary" [routerLink]="['/phone-list']" [queryParams]="{ PhoneNumberTypeID: item.PhoneNumberTypeID }">Phone List</button></th>
+            <th><button class="btn btn-warning">Edit</button></th>
+            <th><button (click)="delPhoneNumberType(item.PhoneNumberTypeID)" class="btn btn-danger">Delete</button></th>
+            <th><button class="btn btn-primary" [routerLink]="['/phone-list']" [queryParams]="{ PhoneNumberTypeID: item.PhoneNumberTypeID }">Phone List</button></th>
         </tr>
     </tbody>
 </table>
