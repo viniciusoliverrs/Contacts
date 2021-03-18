@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { PhoneListComponent } from './pages/phone-list/phone-list.component';
 import { EditPhoneComponent } from './pages/edit-phone/edit-phone.component';
+import { EditNameComponent } from './pages/edit-name/edit-name.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PhoneListComponent,
-    EditPhoneComponent
+    EditPhoneComponent,
+    EditNameComponent
   ],
   imports: [
     BrowserModule,

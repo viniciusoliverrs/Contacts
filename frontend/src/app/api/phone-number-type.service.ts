@@ -22,7 +22,7 @@ export class PhoneNumberTypeService {
   }
 
   edit(data:any) {
-
+    return this.http.post(`${this.shared.baseUrl}/editPhoneNumberType`,data);
   }
   delete(data:any) {
     return this.http.post(`${this.shared.baseUrl}/delPhoneNumberType`,data);

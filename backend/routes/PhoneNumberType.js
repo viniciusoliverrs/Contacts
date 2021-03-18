@@ -6,16 +6,12 @@ const dbConn = require('../config/db.config')
 router.get('/PhoneNumberType', (req, res) => {
     dbConn.connect(function(err) {
         let sql = "SELECT * FROM phonenumbertype";
+        if (req.query.PhoneNumberTypeID) {
+            sql = `SELECT * FROM phonenumbertype WHERE PhoneNumberTypeID =  ${req.query.PhoneNumberTypeID}`;
+        }
+        console.log(sql);
         dbConn.query(sql, function(err, result) {
             return res.status(200).json({ "item": result });
-        });
-    });
-});
-router.get('/PhoneNumberType/:PhoneNumberTypeID', (req, res) => {
-    dbConn.connect(function(err) {
-        let sql = `SELECT * FROM phonenumbertype WHERE PhoneNumberTypeID =  ${req.body.PhoneNumberTypeID}`;
-        dbConn.query(sql, function(err, result) {
-            return res.json({ item: result });
         });
     });
 });

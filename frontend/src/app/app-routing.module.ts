@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'edit-phone',
     component: EditPhoneComponent
+  },
+  {
+    path: 'edit-name',
+    component: EditPhoneComponent
   }
 ];
 
