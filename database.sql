@@ -13,27 +13,31 @@
 
 
 -- Dumping database structure for test
+DROP DATABASE IF EXISTS `test`;
 CREATE DATABASE IF NOT EXISTS `test` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `test`;
 
 -- Dumping structure for table test.personphone
+DROP TABLE IF EXISTS `personphone`;
 CREATE TABLE IF NOT EXISTS `personphone` (
   `BusinessEntityID` bigint(20) NOT NULL AUTO_INCREMENT,
   `PhoneNumber` varchar(100) NOT NULL,
   `PhoneNumberTypeID` bigint(20) NOT NULL,
   PRIMARY KEY (`BusinessEntityID`) USING BTREE,
+  UNIQUE KEY `PhoneNumber` (`PhoneNumber`),
   KEY `PhoneNumberTypeID` (`PhoneNumberTypeID`),
   CONSTRAINT `personphone_ibfk_1` FOREIGN KEY (`PhoneNumberTypeID`) REFERENCES `phonenumbertype` (`PhoneNumberTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
 
 -- Dumping structure for table test.phonenumbertype
+DROP TABLE IF EXISTS `phonenumbertype`;
 CREATE TABLE IF NOT EXISTS `phonenumbertype` (
   `PhoneNumberTypeID` bigint(20) NOT NULL AUTO_INCREMENT,
   `Name` varchar(150) NOT NULL,
   PRIMARY KEY (`PhoneNumberTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
 

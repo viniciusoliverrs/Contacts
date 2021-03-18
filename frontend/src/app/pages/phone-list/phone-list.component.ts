@@ -22,7 +22,7 @@ export class PhoneListComponent implements OnInit {
     });
   }
   addPersonNumber(data: any) {
-    if (data.PersonPhone == "") {
+    if (data.PersonPhone == '') {
       alert("Requered Person Phone!");
     }
     else {

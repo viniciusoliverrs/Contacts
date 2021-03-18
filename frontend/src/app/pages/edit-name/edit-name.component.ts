@@ -16,6 +16,7 @@ export class EditNameComponent implements OnInit {
       const data = { "PhoneNumberTypeID": parseInt(params.PhoneNumberTypeID) };
       this.phoneNumberType.get(data).subscribe(response=>{
         this.data = response;
+        console.log(this.data);
       });
     });
   }
@@ -23,6 +24,7 @@ export class EditNameComponent implements OnInit {
     if (data.PhoneNumber == "") {
       alert("Requered Phone Number Type!")
     } else {
+      console.log(data);
       this.phoneNumberType.edit(data).subscribe(response => {
         { status } response;
         if (status = "OK") {

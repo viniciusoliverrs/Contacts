@@ -10,7 +10,8 @@
                         Name:*
                     </span>
                 </div>
-                <input class="form-control" type="text" name="PhoneNumber" ngModel="{{item.Name}}" />
+                <input type="hidden" name="PhoneNumberTypeID" ngModel="{{item.PhoneNumberTypeID}}" />
+                <input class="form-control" type="text" name="Name" ngModel="{{item.Name}}" />
             </div>
             <button class="btn btn-warning" style="margin-top:5px;" type="button" onclick="window.history.back()">Cancel</button>
             <button (click)="editName(form.value)" class="btn btn-success" style="float:right;margin-top:5px;">Save</button>
