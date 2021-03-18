@@ -35,6 +35,8 @@ export class PhoneListComponent implements OnInit {
           this.personPhone.getAll(data).subscribe(response => {
             this.data = response;
           });
+        } else {
+          alert("There was an error! Try again.");
         }
       });
     }
