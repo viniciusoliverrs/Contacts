@@ -1,1 +1,26 @@
-<p>phone-list works!</p>
+<fieldset style="margin-bottom: 10px;">
+    <form #form="ngForm">
+        <legend>Person Phone:*</legend>
+        <input type="tel" name="PhoneNumber" ngModel />
+        <button (click)="addPersonNumber(form.value)" class="btn-success">Add</button>
+    </form>
+</fieldset>
+
+<h1>Phone List:</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th colspan="3">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data.item">
+            <th>{{item.BusinessEntityID}}</th>
+            <th>{{item.PhoneNumber}}</th>
+            <th><button class="">Edit</button></th>
+            <th><button (click)="delPersonNumber(item.PhoneNumberTypeID,item.BusinessEntityID)">Delete</button></th>
+        </tr>
+    </tbody>
+</table>

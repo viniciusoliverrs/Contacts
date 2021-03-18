@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
   }
   delPhoneNumberType(PhoneNumberTypeID: any) {
     const data = { "PhoneNumberTypeID": PhoneNumberTypeID };
+    console.log(data);
     this.phoneNumberType.delete(data).subscribe(response => {
       { status } response;
       if (status = "OK") {

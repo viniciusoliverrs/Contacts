@@ -2,10 +2,10 @@
     <form #form="ngForm">
         <legend>Phone Number Type:*</legend>
         <input type="text" name="Name" required ngModel />
-        <button (click)="addPhoneNumberType(form.value)">Add</button>
+        <button (click)="addPhoneNumberType(form.value)" class="btn-success">Add</button>
     </form>
 </fieldset>
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>#</th>
@@ -18,8 +18,8 @@
             <th>{{item.PhoneNumberTypeID}}</th>
             <th>{{item.Name}}</th>
             <th><a href="">Edit</a></th>
-            <th><button (click)="delPhoneNumberType(item.PhoneNumberTypeID)">Delete</button></th>
-            <th><a [routerLink]="['/phone-list']" [queryParams]="{ PhoneNumberTypeID: item.PhoneNumberTypeID }">Phone List</a></th>
+            <th><button (click)="delPhoneNumberType(item.PhoneNumberTypeID)" class="btn-danger">Delete</button></th>
+            <th><button class="btn-primary" [routerLink]="['/phone-list']" [queryParams]="{ PhoneNumberTypeID: item.PhoneNumberTypeID }">Phone List</button></th>
         </tr>
     </tbody>
 </table>

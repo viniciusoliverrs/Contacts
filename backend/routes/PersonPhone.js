@@ -4,9 +4,9 @@ const dbConn = require('../config/db.config')
 
 
 router.get('/PersonPhone', (req, res) => {
-    console.log(req.body);
     dbConn.connect(function(err) {
-        let sql = "SELECT * FROM personphone";
+        let sql = `SELECT * FROM personphone WHERE PhoneNumberTypeID = ${req.query.PhoneNumberTypeID}`;
+        console.log(sql);
         dbConn.query(sql, function(err, result) {
             return res.json({ item: result });
         });
@@ -14,14 +14,13 @@ router.get('/PersonPhone', (req, res) => {
 });
 router.get('/PersonPhone/:BusinessEntityID', (req, res) => {
     dbConn.connect(function(err) {
-        let sql = `SELECT * FROM personphone AS pp INNER JOIN phonenumbertype as pt ON pp.PhoneNumberTypeID = pt.PhoneNumberTypeID WHERE pp.BusinessEntityID = ${req.body.BusinessEntityID} `;
+        let sql = `SELECT * FROM personphone WHERE pp.BusinessEntityID = ${req.body.BusinessEntityID} `;
         dbConn.query(sql, function(err, result) {
             return res.json({ item: result });
         });
     });
 });
 router.post('/addPersonPhone', (req, res) => {
-    console.log(req.body);
     dbConn.connect(function(err) {
         let sql = `INSERT INTO personphone (PhoneNumber,PhoneNumberTypeID) VALUES ("${req.body.PhoneNumber}",${req.body.PhoneNumberTypeID})`;
         dbConn.query(sql, function(err, result) {
